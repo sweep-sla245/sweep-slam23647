@@ -23,7 +23,7 @@ def upload_apk_final(uid):
     
     page = ChromiumPage(co)
     try:
-        page.get(f'https://www.myandroid.org/filemanager.php?username={uid}')
+        page.get(f'https://www.uptoplay.net/filemanager.php?username={uid}')
         time.sleep(10) # Temps d'attente augmenté pour Cloudflare sur serveur
         
         cookies = {c['name']: c['value'] for c in page.cookies()}
@@ -31,7 +31,7 @@ def upload_apk_final(uid):
         page.quit()
 
         print(f"[{uid}] Envoi réel du fichier...")
-        url = "https://www.myandroid.org/filemanager.php"
+        url = "https://www.uptoplay.net/filemanager.php"
         params = {'service': 'apkonserver01', 'username': uid}
         data = {'api': 'upload', 'dir': ''}
 
